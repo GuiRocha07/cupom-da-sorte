@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo %}Nova campanha · Cupom da Sorte{% endblock %}
+{% block conteudo %}
+<section class="cartao">
+  <h1>Nova campanha</h1>
+  <form method="post" action="{{ url_for('criar_campanha') }}" enctype="multipart/form-data">
+    <label>Título
+      <input name="titulo" placeholder="Ex.: Sorteio de Natal" required>
+    </label>
+    <label>Prêmios (um por linha, na ordem do sorteio)
+      <textarea name="premios" rows="4" placeholder="Air fryer&#10;Liquidificador&#10;Kit de panelas" required></textarea>
+    </label>
+    <label>Planilha de participantes (CSV)
+      <input type="file" name="planilha" accept=".csv">
+      <small>Colunas: <b>Nome</b>, <b>Código</b> e <b>Cupons</b>. Sem arquivo, usa a lista de exemplo.</small>
+    </label>
+    <button class="botao">Criar campanha</button>
+  </form>
+</section>
+{% endblock %}

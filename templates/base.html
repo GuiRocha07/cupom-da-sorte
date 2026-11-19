@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Cupom da Sorte{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topo">
+    <a class="marca" href="{{ url_for('inicio') }}">🎟️ Cupom da Sorte</a>
+    <nav>
+      <a href="{{ url_for('inicio') }}">Sorteio</a>
+      <a href="{{ url_for('historico') }}">Histórico</a>
+      <a href="{{ url_for('nova_campanha') }}">Nova campanha</a>
+    </nav>
+  </header>
+  <main>
+    {% with mensagens = get_flashed_messages() %}
+      {% for m in mensagens %}<p class="aviso">{{ m }}</p>{% endfor %}
+    {% endwith %}
+    {% block conteudo %}{% endblock %}
+  </main>
+  <canvas id="confete"></canvas>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

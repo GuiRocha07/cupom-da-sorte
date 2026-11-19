@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}Histórico · Cupom da Sorte{% endblock %}
+{% block conteudo %}
+<section class="cartao">
+  <h1>Histórico de ganhadores</h1>
+  {% if ganhadores %}
+  <table>
+    <thead><tr><th>Campanha</th><th>Prêmio</th><th>Ganhador</th><th>Cupons</th><th>Data</th></tr></thead>
+    <tbody>
+      {% for v in ganhadores %}
+      <tr><td>{{ v.titulo }}</td><td>{{ v.premio }}</td><td>{{ v.nome }}</td><td>{{ v.cupons }}</td><td>{{ v.sorteado_em.replace('T', ' ') }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>Nenhum sorteio realizado ainda.</p>
+  {% endif %}
+</section>
+{% endblock %}
