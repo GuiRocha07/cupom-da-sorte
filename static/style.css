@@ -1,0 +1,57 @@
+:root {
+  --fundo: #0b1530;
+  --cartao: #13214a;
+  --texto: #f1f5f9;
+  --suave: #94a3b8;
+  --destaque: #ff7a00;
+  --azul: #3b82f6;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1e3a8a 0%, var(--fundo) 60%);
+  color: var(--texto);
+  min-height: 100vh;
+}
+.topo {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 32px; border-bottom: 1px solid #1e2b55;
+}
+.marca { font-weight: 700; font-size: 1.2rem; color: var(--texto); text-decoration: none; }
+nav a { color: var(--suave); margin-left: 20px; text-decoration: none; }
+nav a:hover { color: var(--texto); }
+main { max-width: 1000px; margin: 0 auto; padding: 32px 20px; }
+h1 { margin-top: 0; }
+.aviso { background: #7c2d12; padding: 10px 14px; border-radius: 8px; }
+.cartao { background: var(--cartao); border-radius: 14px; padding: 24px; }
+.palco { text-align: center; margin-bottom: 32px; }
+.resumo { color: var(--suave); }
+.tambor {
+  margin: 24px auto; max-width: 640px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+  background: #0f1c40; border: 3px solid var(--azul); border-radius: 18px;
+  font-size: 2.2rem; font-weight: 700; overflow: hidden; padding: 0 16px;
+}
+.tambor.vencedor { border-color: var(--destaque); box-shadow: 0 0 40px rgba(255, 122, 0, .5); }
+.premio { font-size: 1.2rem; min-height: 1.5em; }
+.botao {
+  background: var(--destaque); color: #fff; border: 0; border-radius: 10px;
+  padding: 12px 22px; font-size: 1rem; font-weight: 600; cursor: pointer;
+}
+.botao.grande { font-size: 1.3rem; padding: 16px 48px; }
+.botao:disabled { opacity: .45; cursor: not-allowed; }
+.link { background: none; border: 0; color: var(--azul); cursor: pointer; font-size: .9rem; }
+.colunas { display: grid; grid-template-columns: 1fr 1.4fr; gap: 20px; }
+@media (max-width: 720px) { .colunas { grid-template-columns: 1fr; } }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #1e2b55; }
+th { color: var(--suave); font-weight: 500; }
+.borrado tbody { filter: blur(5px); user-select: none; }
+form label { display: block; margin-bottom: 16px; }
+input, textarea {
+  width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;
+  border: 1px solid #334155; background: #0f1c40; color: var(--texto); font: inherit;
+}
+small { color: var(--suave); }
+#confete { position: fixed; inset: 0; pointer-events: none; }
